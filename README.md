@@ -1,9 +1,10 @@
 # xcolor
-color value:Red,Green,Yellow,Blue,Purple,Cyan,Black,White
+color values:Red,Green,Yellow,Blue,Purple,Cyan,Black,White
 
-style value:Default,Highlight,Italic,Underline,Flashing,Reversed,Linethrough
+style values:Default,Highlight,Italic,Underline,Flashing,Reversed,Linethrough
 
-create a color object
+create a color object and use print
+
 eg.
 
 yellow =  Xcolor("Yellow")
