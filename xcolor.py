@@ -62,8 +62,7 @@ class Style:
     bold = 1
     italic = 3
     underline = 4
-    flashing = 5
-    reversed = 7
+    flash = 5
     throughline = 9
 
 
