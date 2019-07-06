@@ -80,7 +80,7 @@ color = Color("White","Blue","Bold")
 
 color.print(color)
 
-#重设字体蓝色,背景色为当前终端背景色,默认风格显示
+#重设字体颜色为蓝色,背景色为当前终端背景色,默认风格显示
 
 color.foreground = "Blue"
 
