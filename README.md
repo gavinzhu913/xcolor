@@ -22,8 +22,6 @@
 
 "Flash":闪烁
 
-"Reversed":反向显示
-
 "Throughline":删除线
 
 
@@ -44,13 +42,16 @@ TBLACK,TRED,TGREEN,TYELLOW,TBLUE,TPURPLE,TCYAN,TWHITE
 
 
 eg.
+
+from xcolor import *
+
 #查看所有颜色
 test_color()
 
 #查看内置对象风格
 test_style()
 
-#打印蓝色字体
+#打印蓝色字体,print方法参数与内置print函数相同
 BLUE.print("hello world!",[1,2,3])
 
 #打印带下划线的黄色字体
