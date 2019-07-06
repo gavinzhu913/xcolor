@@ -1,7 +1,9 @@
 # xcolor
-color values:Red,Green,Yellow,Blue,Purple,Cyan,Black,White
+color values:
+Red,Green,Yellow,Blue,Purple,Cyan,Black,White
 
-style values:Default,Highlight,Italic,Underline,Flashing,Reversed,Linethrough
+style values:
+Default,Bold,Italic,Underline,Flashing,Reversed,Througline
 
 create a color object and use print
 

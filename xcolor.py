@@ -1,153 +1,171 @@
 import sys
 
 
-class Xcolor:
-    """
-    Xcolor(foreground=None,background=None,default_foreground=None,default_background=None,style=None)
-    
-    color:Red,Green,Yellow,Blue,Purple,Cyan,Black,White
+class Foreground:
+    default = 38
+    blacka = 30
+    blackb = 90
+    reda = 31
+    redb = 91
+    greena = 32
+    greenb = 92
+    yellowa = 33
+    yellowb = 93
+    bluea = 34
+    blueb = 94
+    purplea = 35
+    purpleb = 95
+    cyana = 36
+    cyanb = 96
+    whitea = 37
+    whiteb = 97
+    black = blackb
+    red = reda
+    green = greenb
+    yellow = yellowa
+    blue = blueb
+    purple = purpleb
+    cyan = cyana
+    white = whiteb
 
-    style:Default,Highlight,Italic,Underline,Flashing,Reversed,Linethrough
-    """
 
-    __style = {
-        "default": 0,
-        "highlight": 1,
-        "italic": 3,
-        "underline": 4,
-        "flashing": 5,
-        "reversed": 7,
-        "linethrough": 9
-    }
+class Background:
+    default = 48
+    blacka = 40
+    blackb = 100
+    reda = 41
+    redb = 101
+    greena = 42
+    greenb = 102
+    yellowa = 43
+    yellowb = 103
+    bluea = 44
+    blueb = 104
+    purplea = 45
+    purpleb = 105
+    cyana = 46
+    cyanb = 106
+    whitea = 47
+    whiteb = 107
+    black = blackb
+    red = reda
+    green = greenb
+    yellow = yellowa
+    blue = blueb
+    purple = purpleb
+    cyan = cyana
+    white = whiteb
 
-    __foreground_map = {
-        "black": 30,
-        "red": 31,
-        "green": 32,
-        "yellow": 33,
-        "blue": 34,
-        "purple": 35,
-        "cyan": 36,
-        "white": 37,
-    }
 
-    __background_map = {
-        "black": 40,
-        "red": 41,
-        "green": 42,
-        "yellow": 43,
-        "blue": 44,
-        "purple": 45,
-        "cyan": 46,
-        "white": 47,
-    }
+class Style:
+    default = 0
+    bold = 1
+    italic = 3
+    underline = 4
+    flashing = 5
+    reversed = 7
+    throughline = 9
 
-    __default_foreground = "White"
-    __default_background = "Black"
 
-    def __init__(self, foreground=None, background=None, default_foreground=None, default_background=None, style=None):
+class Color:
+
+    def __init__(self, foreground="default", background="default", style="default"):
         self.foreground = foreground
         self.background = background
-        self.default_foreground = default_foreground
-        self.default_background = default_background
         self.style = style
 
     def print(self, *objects, sep=' ', end='\n', file=sys.stdout, flush=False):
-        self.__print(*objects, sep=sep, end=end, file=file, flush=flush)
-
-    def __reset(self):
-        default_foreground = self.__foreground_map[self.default_foreground.lower()] if self.default_foreground else \
-            self.__foreground_map[self.__default_foreground.lower()]
-        default_background = self.__background_map[self.default_background.lower()] if self.default_background else \
-            self.__background_map[self.__default_background.lower()]
-        print("\033[0;%s;%sm" % (default_foreground, default_background), end="", flush=True)
-
-    def __print(self, *objects, sep, end, file, flush):
-        style = self.__style[self.style.lower()] if self.style else None
-        foreground = self.__foreground_map[self.foreground.lower()] if self.foreground else None
-        background = self.__background_map[self.background.lower()] if self.background else None
-        print("\033[", end="", flush=True)
-        if style:
-            print("%s" % (style), end="", flush=True)
-        if foreground:
-            print(";%s" % (foreground), end="", flush=True)
-        if background:
-            print(";%s" % (background), end="", flush=True)
-        print("m", end="", flush=True)
+        print('\033[%s;%s;%sm' % (Style.__dict__[self.style.lower()], Foreground.__dict__[self.foreground.lower()], \
+                                  Background.__dict__[self.background.lower()]), end='')
         print(*objects, sep=sep, end='', file=file, flush=flush)
-        self.__reset()
-        print(end=end, flush=True)
+        print('\033[0m', end=end)
+
+    def __getattr__(self, item):
+        if isinstance(item, str):
+            return item.title()
+
+    def __repr__(self):
+        return "<Color('%s','%s','%s')>" % (self.foreground.title(), self.background.title(), self.style.title())
 
 
-RED = Xcolor("Red")
-GREEN = Xcolor("Green")
-BLUE = Xcolor("Blue")
-CYAN = Xcolor("Cyan")
-PURPLE = Xcolor("Purple")
-YELLOW = Xcolor("Yellow")
-WHITE = Xcolor("White")
-BLACK = Xcolor("Black")
+BLACK = Color("Black")
+RED = Color("Red")
+GREEN = Color("Green")
+YELLOW = Color("Yellow")
+BLUE = Color("Blue")
+PURPLE = Color("Purple")
+CYAN = Color("Cyan")
+WHITE = Color("White")
 
-HRED = Xcolor("Red", style="Highlight")
-HGREEN = Xcolor("Green", style="Highlight")
-HBLUE = Xcolor("Blue", style="Highlight")
-HCYAN = Xcolor("Cyan", style="Highlight")
-HPURPLE = Xcolor("Purple", style="Highlight")
-HYELLOW = Xcolor("Yellow", style="Highlight")
-HWHITE = Xcolor("White", style="Highlight")
-HBLACK = Xcolor("Black", style="Highlight")
+IBLACK = Color("Black", style="Italic")
+IRED = Color("Red", style="Italic")
+IGREEN = Color("Green", style="Italic")
+IYELLOW = Color("Yellow", style="Italic")
+IBLUE = Color("Blue", style="Italic")
+IPURPLE = Color("Purple", style="Italic")
+ICYAN = Color("Cyan", style="Italic")
+IWHITE = Color("White", style="Italic")
 
-IRED = Xcolor("Red", style="Italic")
-IGREEN = Xcolor("Green", style="Italic")
-IBLUE = Xcolor("Blue", style="Italic")
-ICYAN = Xcolor("Cyan", style="Italic")
-IPURPLE = Xcolor("Purple", style="Italic")
-IYELLOW = Xcolor("Yellow", style="Italic")
-IWHITE = Xcolor("White", style="Italic")
-IBLACK = Xcolor("Black", style="Italic")
+UBLACK = Color("Black", style="Underline")
+URED = Color("Red", style="Underline")
+UGREEN = Color("Green", style="Underline")
+UYELLOW = Color("Yellow", style="Underline")
+UBLUE = Color("Blue", style="Underline")
+UPURPLE = Color("Purple", style="Underline")
+UCYAN = Color("Cyan", style="Underline")
+UWHITE = Color("White", style="Underline")
 
-URED = Xcolor("Red", style="Underline")
-UGREEN = Xcolor("Green", style="Underline")
-UBLUE = Xcolor("Blue", style="Underline")
-UCYAN = Xcolor("Cyan", style="Underline")
-UPURPLE = Xcolor("Purple", style="Underline")
-UYELLOW = Xcolor("Yellow", style="Underline")
-UWHITE = Xcolor("White", style="Underline")
-UBLACK = Xcolor("Black", style="Underline")
+TBLACK = Color("Black", style="Throughline")
+TRED = Color("Red", style="Throughline")
+TGREEN = Color("Green", style="Throughline")
+TYELLOW = Color("Yellow", style="Throughline")
+TBLUE = Color("Blue", style="Throughline")
+TPURPLE = Color("Purple", style="Throughline")
+TCYAN = Color("Cyan", style="Throughline")
+TWHITE = Color("White", style="Throughline")
 
-if __name__ == "__main__":
-    RED.print("Hello World!")
-    GREEN.print("Hello World!")
-    BLUE.print("Hello World!")
-    CYAN.print("Hello World!")
-    PURPLE.print("Hello World!")
-    YELLOW.print("Hello World!")
-    WHITE.print("Hello World!")
-    BLACK.print("Hello World!")
 
-    HRED.print("Hello World!")
-    HGREEN.print("Hello World!")
-    HBLUE.print("Hello World!")
-    HCYAN.print("Hello World!")
-    HPURPLE.print("Hello World!")
-    HYELLOW.print("Hello World!")
-    HWHITE.print("Hello World!")
-    HBLACK.print("Hello World!")
+def test_style():
+    BLACK.print("BLACK")
+    RED.print("RED")
+    GREEN.print("GREEN")
+    YELLOW.print("YELLOW")
+    BLUE.print("BLUE")
+    PURPLE.print("PURPLE")
+    CYAN.print("CYAN")
+    WHITE.print("WHITE")
 
-    IRED.print("Hello World!")
-    IGREEN.print("Hello World!")
-    IBLUE.print("Hello World!")
-    ICYAN.print("Hello World!")
-    IPURPLE.print("Hello World!")
-    IYELLOW.print("Hello World!")
-    IWHITE.print("Hello World!")
-    IBLACK.print("Hello World!")
+    IBLACK.print("IBLACK")
+    IRED.print("IRED")
+    IGREEN.print("IGREEN")
+    IYELLOW.print("IYELLOW")
+    IBLUE.print("IBLUE")
+    IPURPLE.print("IPURPLE")
+    ICYAN.print("ICYAN")
+    IWHITE.print("IWHITE")
 
-    URED.print("Hello World!")
-    UGREEN.print("Hello World!")
-    UBLUE.print("Hello World!")
-    UCYAN.print("Hello World!")
-    UPURPLE.print("Hello World!")
-    UYELLOW.print("Hello World!")
-    UWHITE.print("Hello World!")
-    UBLACK.print("Hello World!")
+    UBLACK.print("UBLACK")
+    URED.print("URED")
+    UGREEN.print("UGREEN")
+    UYELLOW.print("UYELLOW")
+    UBLUE.print("UBLUE")
+    UPURPLE.print("UPURPLE")
+    UCYAN.print("UCYAN")
+    UWHITE.print("UWHITE")
+
+    TBLACK.print("TBLACK")
+    TRED.print("TRED")
+    TGREEN.print("TGREEN")
+    TYELLOW.print("TYELLOW")
+    TBLUE.print("TBLUE")
+    TPURPLE.print("TPURPLE")
+    TCYAN.print("TCYAN")
+    TWHITE.print("TWHITE")
+
+
+def test_color():
+    char = "█" * 10
+    color_dict = {key: value for key, value in Foreground.__dict__.items() if
+                  isinstance(value, int) and key != 'default'}
+    for key, value in color_dict.items():
+        Color(key).print(char, key.title())
