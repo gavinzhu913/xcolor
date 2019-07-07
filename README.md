@@ -21,13 +21,12 @@
 
 
 
-
-
 "Bold":高亮加粗
 "Italic":斜体
 "Underline":下划线
 "Flash":闪烁
 "Throughline":删除线
+
 
 
 ## 内置对象:
@@ -42,6 +41,8 @@ IBLACK,IRED,IGREEN,IYELLOW,IBLUE,IPURPLE,ICYAN,IWHITE
 UBLACK,URED,UGREEN,UYELLOW,UBLUE,UPURPLE,UCYAN,UWHITE
 删除线风格
 TBLACK,TRED,TGREEN,TYELLOW,TBLUE,TPURPLE,TCYAN,TWHITE
+
+
 
 ## eg.
 
