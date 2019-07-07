@@ -21,11 +21,11 @@
 
 
 
-"Bold":高亮加粗 
-"Italic":斜体 
-"Underline":下划线 
-"Flash":闪烁 
-"Throughline":删除线 
+"Bold":高亮加粗  
+"Italic":斜体  
+"Underline":下划线  
+"Flash":闪烁  
+"Throughline":删除线  
 
 
 
