@@ -3,9 +3,8 @@
 支持UNIX及类UNIX操作系统
 支持Python版本为Python3.0+
 
-### 颜色值:
+## 颜色值:
 
-------------
 
 
 每种颜色有两种相近的颜色,以A和B区分.
@@ -18,29 +17,36 @@
 
 
 
-### 字体风格:
+## 字体风格:
 
-------------
 
-"Bold":高亮加粗
-"Italic":斜体
-"Underline":下划线
-"Flash":闪烁
-"Throughline":删除线
 
-### 内置对象:
-------------
-常规颜色风格
-BLACK,RED,GREEN,YELLOW,BLUE,PURPLE,CYAN,WHITE
-斜体风格
-IBLACK,IRED,IGREEN,IYELLOW,IBLUE,IPURPLE,ICYAN,IWHITE
-下划线风格
-UBLACK,URED,UGREEN,UYELLOW,UBLUE,UPURPLE,UCYAN,UWHITE
-删除线风格
-TBLACK,TRED,TGREEN,TYELLOW,TBLUE,TPURPLE,TCYAN,TWHITE
+"Bold":高亮加粗  
+"Italic":斜体  
+"Underline":下划线  
+"Flash":闪烁  
+"Throughline":删除线  
 
-eg.
-------------
+
+
+## 内置对象:
+
+
+
+常规颜色风格  
+BLACK,RED,GREEN,YELLOW,BLUE,PURPLE,CYAN,WHITE  
+斜体风格  
+IBLACK,IRED,IGREEN,IYELLOW,IBLUE,IPURPLE,ICYAN,IWHITE  
+下划线风格  
+UBLACK,URED,UGREEN,UYELLOW,UBLUE,UPURPLE,UCYAN,UWHITE  
+删除线风格  
+TBLACK,TRED,TGREEN,TYELLOW,TBLUE,TPURPLE,TCYAN,TWHITE  
+
+
+
+## eg.
+
+
 
 	# 测试内置颜色对象
 	test_style()
