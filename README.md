@@ -23,6 +23,8 @@
 ------------
 
 
+
+
 "Bold":高亮加粗
 "Italic":斜体
 "Underline":下划线
@@ -31,7 +33,10 @@
 
 
 ### 内置对象:
+
 ------------
+
+
 常规颜色风格
 BLACK,RED,GREEN,YELLOW,BLUE,PURPLE,CYAN,WHITE
 斜体风格
@@ -42,7 +47,10 @@ UBLACK,URED,UGREEN,UYELLOW,UBLUE,UPURPLE,UCYAN,UWHITE
 TBLACK,TRED,TGREEN,TYELLOW,TBLUE,TPURPLE,TCYAN,TWHITE
 
 eg.
+
 ------------
+
+
 
 	# 测试内置颜色对象
 	test_style()
