@@ -5,7 +5,6 @@
 
 ## 颜色值:
 
-------------
 
 
 每种颜色有两种相近的颜色,以A和B区分.
@@ -20,7 +19,6 @@
 
 ## 字体风格:
 
-------------
 
 
 
@@ -34,7 +32,6 @@
 
 ## 内置对象:
 
-------------
 
 
 常规颜色风格
@@ -46,7 +43,7 @@ UBLACK,URED,UGREEN,UYELLOW,UBLUE,UPURPLE,UCYAN,UWHITE
 删除线风格
 TBLACK,TRED,TGREEN,TYELLOW,TBLUE,TPURPLE,TCYAN,TWHITE
 
-eg.
+## eg.
 
 ------------
 
