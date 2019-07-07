@@ -45,8 +45,6 @@ TBLACK,TRED,TGREEN,TYELLOW,TBLUE,TPURPLE,TCYAN,TWHITE
 
 ## eg.
 
-------------
-
 
 
 	# 测试内置颜色对象
