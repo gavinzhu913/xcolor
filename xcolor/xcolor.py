@@ -1,6 +1,6 @@
 import sys
 import functools
-import colors
+from .colors import *
 
 
 class Color:
@@ -12,15 +12,15 @@ class Color:
 
     def print(self, *objects, sep=' ', end='\n', file=sys.stdout, flush=False):
         print('\033[%s;%s;%sm' % (
-            colors.Style.__dict__[self.style.lower()], colors.Foreground.__dict__[self.foreground.lower()], \
-            colors.Background.__dict__[self.background.lower()]), end='', flush=True)
+            Style.__dict__[self.style.lower()], Foreground.__dict__[self.foreground.lower()], \
+            Background.__dict__[self.background.lower()]), end='', flush=True)
         print(*objects, sep=sep, end='', file=file, flush=flush)
         print('\033[0m', end=end, flush=True)
 
     def setenv(self):
         print('\033[%s;%s;%sm' % (
-            colors.Style.__dict__[self.style.lower()], colors.Foreground.__dict__[self.foreground.lower()], \
-            colors.Background.__dict__[self.background.lower()]), end='', flush=True)
+            Style.__dict__[self.style.lower()], Foreground.__dict__[self.foreground.lower()], \
+            Background.__dict__[self.background.lower()]), end='', flush=True)
 
     def clear(self):
         print('\033[0m', end='', flush=True)
@@ -38,9 +38,9 @@ def color(color_obj):
         @functools.wraps(func)
         def wrap(*args, **kwargs):
             print('\033[%s;%s;%sm' % (
-                colors.Style.__dict__[color_obj.style.lower()],
-                colors.Foreground.__dict__[color_obj.foreground.lower()], \
-                colors.Background.__dict__[color_obj.background.lower()]), end='', flush=True)
+                Style.__dict__[color_obj.style.lower()],
+                Foreground.__dict__[color_obj.foreground.lower()], \
+                Background.__dict__[color_obj.background.lower()]), end='', flush=True)
             value = func(*args, **kwargs)
             print('\033[0m', end='', flush=True)
             return value
@@ -125,7 +125,7 @@ def test_style():
 
 def test_color():
     char = "█" * 10
-    color_dict = {key: value for key, value in colors.Foreground.__dict__.items() if
+    color_dict = {key: value for key, value in Foreground.__dict__.items() if
                   isinstance(value, int) and key != 'default'}
     for key, value in color_dict.items():
         Color(key).print(char, key.title())
