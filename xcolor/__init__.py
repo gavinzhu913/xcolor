@@ -1,1 +1,1 @@
-from .color import *
+from .xcolor import *
