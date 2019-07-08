@@ -46,8 +46,8 @@ TBLACK,TRED,TGREEN,TYELLOW,TBLUE,TPURPLE,TCYAN,TWHITE
 
 ## eg.
 
-
-
+    import logging
+    from xcolor import *
 	# 测试内置颜色对象
 	test_style()
 	# 蓝色字体
