@@ -63,12 +63,12 @@ TBLACK,TRED,TGREEN,TYELLOW,TBLUE,TPURPLE,TCYAN,TWHITE
 	color_obj.style = "Bold"
 	color_obj.print("Hi")
 
-	# color装饰器
-	# 接受一个Color对象,改变被装饰函数内的标准输出
-	@color(TBLUE)
-	def test():
-		print("test")
-	test()
+	# 用Color对象作为装饰器,改变被装饰函数内的标准输出
+    @YELLOW
+    def test():
+        print("*"*20)
+
+    test()
 	logger = logging.getLogger("test")
 	# setenv与clear成对使用,区间的标准输出风格被改变
 	# 以绿色打印warning,红色打印error

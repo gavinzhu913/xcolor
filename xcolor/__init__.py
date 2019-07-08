@@ -1,8 +1,9 @@
 from .xcolor import *
+from .style import *
+from .test import *
 
 __all__ = [
     "Color",
-    "color",
     "BLACK",
     "RED",
     "GREEN",

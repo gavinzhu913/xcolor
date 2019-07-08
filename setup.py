@@ -1,15 +1,16 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 setup(
     author = "Max",
     author_email = "max@artsoft.io",
     license = "MIT",
     name = "xcolor",
-    version = "1.6.2",
+    version = "1.6.6",
     keywords = "color print ColorPrint python3",
     url = "https://github.com/artsoftio/xcolor",
     install_requires = [],
-    packages = ['xcolor'],
+    py_modules = ['demo'],
+    packages = find_packages(),
     description = "终端彩色打印",
     long_description = open("README.md").read(),
     long_description_content_type='text/markdown',

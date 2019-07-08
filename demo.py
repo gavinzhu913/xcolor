@@ -19,12 +19,10 @@ if __name__ == "__main__":
     color_obj.print("Hi")
 
 
-    # color装饰器
-    # 接受一个Color对象,改变被装饰函数内的标准输出
-    @color(TBLUE)
+    # 用Color对象作为装饰器,改变被装饰函数内的标准输出
+    @YELLOW
     def test():
-        print("test")
-
+        print("*"*20)
 
     test()
 
@@ -37,3 +35,4 @@ if __name__ == "__main__":
     RED.setenv()
     logger.error("error")
     RED.clear()
+
