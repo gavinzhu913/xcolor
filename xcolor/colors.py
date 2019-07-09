@@ -10,8 +10,8 @@ class Foreground:
     yellowb = 93
     bluea = 34
     blueb = 94
-    purplea = 35
-    purpleb = 95
+    magentaa = 35
+    magentab = 95
     cyana = 36
     cyanb = 96
     whitea = 37
@@ -21,7 +21,7 @@ class Foreground:
     green = greenb
     yellow = yellowa
     blue = blueb
-    purple = purpleb
+    magenta = magentab
     cyan = cyana
     white = whiteb
 
@@ -38,8 +38,8 @@ class Background:
     yellowb = 103
     bluea = 44
     blueb = 104
-    purplea = 45
-    purpleb = 105
+    magentaa = 45
+    magentab = 105
     cyana = 46
     cyanb = 106
     whitea = 47
@@ -49,7 +49,7 @@ class Background:
     green = greenb
     yellow = yellowa
     blue = blueb
-    purple = purpleb
+    magenta = magentab
     cyan = cyana
     white = whiteb
 

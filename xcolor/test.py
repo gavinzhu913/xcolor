@@ -7,7 +7,7 @@ def test_style():
     GREEN.print("GREEN")
     YELLOW.print("YELLOW")
     BLUE.print("BLUE")
-    PURPLE.print("PURPLE")
+    MAGENTA.print("MAGENTA")
     CYAN.print("CYAN")
     WHITE.print("WHITE")
 
@@ -16,7 +16,7 @@ def test_style():
     IGREEN.print("IGREEN")
     IYELLOW.print("IYELLOW")
     IBLUE.print("IBLUE")
-    IPURPLE.print("IPURPLE")
+    IMAGENTA.print("IMAGENTA")
     ICYAN.print("ICYAN")
     IWHITE.print("IWHITE")
 
@@ -25,7 +25,7 @@ def test_style():
     UGREEN.print("UGREEN")
     UYELLOW.print("UYELLOW")
     UBLUE.print("UBLUE")
-    UPURPLE.print("UPURPLE")
+    UMAGENTA.print("UMAGENTA")
     UCYAN.print("UCYAN")
     UWHITE.print("UWHITE")
 
@@ -34,9 +34,18 @@ def test_style():
     TGREEN.print("TGREEN")
     TYELLOW.print("TYELLOW")
     TBLUE.print("TBLUE")
-    TPURPLE.print("TPURPLE")
+    TMAGENTA.print("TMAGENTA")
     TCYAN.print("TCYAN")
     TWHITE.print("TWHITE")
+
+    BBLACK.print("BLACK")
+    BRED.print("RED")
+    BGREEN.print("GREEN")
+    BYELLOW.print("YELLOW")
+    BBLUE.print("BLUE")
+    BMAGENTA.print("MAGENTA")
+    BCYAN.print("CYAN")
+    BWHITE.print("WHITE")
 
 
 def test_color():
