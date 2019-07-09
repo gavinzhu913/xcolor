@@ -1,6 +1,7 @@
 from .colors import Foreground
 from .style import *
 
+
 def test_style():
     BLACK.print("BLACK")
     RED.print("RED")
@@ -47,6 +48,15 @@ def test_style():
     BCYAN.print("CYAN")
     BWHITE.print("WHITE")
 
+    FBLACK.print("FBLACK")
+    FRED.print("FRED")
+    FGREEN.print("FGREEN")
+    FYELLOW.print("FYELLOW")
+    FBLUE.print("FBLUE")
+    FMAGENTA.print("FMAGENTA")
+    FCYAN.print("FCYAN")
+    FWHITE.print("FWHITE")
+
 
 def test_color():
     char = "█" * 10
@@ -54,4 +64,3 @@ def test_color():
                   isinstance(value, int) and key != 'default'}
     for key, value in color_dict.items():
         Color(key).print(char, key.title())
-

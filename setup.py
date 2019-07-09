@@ -5,7 +5,7 @@ setup(
     author_email = "max@artsoft.io",
     license = "MIT",
     name = "xcolor",
-    version = "1.8.0",
+    version = "1.8.2",
     keywords = "color print ColorPrint python3",
     url = "https://github.com/artsoftio/xcolor",
     install_requires = [],
