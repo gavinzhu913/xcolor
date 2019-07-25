@@ -89,7 +89,7 @@ BBLACK,BRED,BGREEN,BYELLOW,BBLUE,BMAGENTA,BCYAN,BWHITE
     # 以绿色打印warning,红色打印error
     GREEN.setenv()
     logger.warning("warning")
-    GREEN.clear()
+    Color.clear()
     RED.setenv()
     logger.error("error")
-    RED.clear()
+    Color.clear()

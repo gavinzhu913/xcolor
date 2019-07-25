@@ -30,7 +30,8 @@ class Color:
         print('\033[%s;%sm' % (Style.__dict__[self.style.lower()], Foreground.__dict__[self.color.lower()]), end='',
               flush=True)
 
-    def clear(self):
+    @classmethod
+    def clear(cls):
         print('\033[0m', end='', flush=True)
 
     def __getattr__(self, item):
