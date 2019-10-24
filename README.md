@@ -7,13 +7,10 @@
 
 
 
-每种颜色有两种相近的颜色,以A和B区分.
-没有以A或B结尾的颜色,如Red,则默认取其中的一种
-"Black","Red","Green","Yellow","Blue","Magenta","Cyan","White"
-"BlackA","RedA","GreenA","YellowA","BlueA","MagentaA","CyanA","WhiteA"
-"BlackB","RedB","GreenB","YellowB","BlueB","MagentaB","CyanB","WhiteB"
+每种颜色有两种相近的颜色,以1和2区分.
+"Black1","Red1","Green1","Yellow1","Blue1","Magenta1","Cyan1","White1"
+"Black2","Red2","Green2","Yellow2","Blue2","Magenta2","Cyan2","White2"
 
-当前终端前景色,背景色,默认风格均为"Default"
 
 
 
@@ -34,62 +31,59 @@
 字体风格需要终端支持  
 
 常规颜色风格  
-BLACK,RED,GREEN,YELLOW,BLUE,MAGENTA,CYAN,WHITE  
-BLACKA,REDA,GREENA,YELLOWA,BLUEA,MAGENTAA,CYANA,WHITEA  
-BLACKB,REDB,GREENB,YELLOWB,BLUEB,MAGENTAB,CYANB,WHITEB  
+xcolor_black1,xcolor_red1,xcolor_green1,xcolor_yellow1,xcolor_blue1,xcolor_magenta1,xcolor_cyan1,xcolor_white1  
+xcolor_black2,xcolor_red2,xcolor_green2,xcolor_yellow2,xcolor_blue2,xcolor_magenta2,xcolor_cyan2,xcolor_white2  
 斜体风格  
-IBLACK,IRED,IGREEN,IYELLOW,IBLUE,IMAGENTA,ICYAN,IWHITE  
-IBLACKA,IREDA,IGREENA,IYELLOWA,IBLUEA,IMAGENTAA,ICYANA,IWHITEA  
-IBLACKB,IREDB,IGREENB,IYELLOWB,IBLUEB,IMAGENTAB,ICYANB,IWHITEB  
-下划线风格  
-UBLACK,URED,UGREEN,UYELLOW,UBLUE,UMAGENTA,UCYAN,UWHITE  
-UBLACKA,UREDA,UGREENA,UYELLOWA,UBLUEA,UMAGENTAA,UCYANA,UWHITEA  
-UBLACKB,UREDB,UGREENB,UYELLOWB,UBLUEB,UMAGENTAB,UCYANB,UWHITEB  
-删除线风格  
-TBLACK,TRED,TGREEN,TYELLOW,TBLUE,TMAGENTA,TCYAN,TWHITE  
-TBLACKA,TREDA,TGREENA,TYELLOWA,TBLUEA,TMAGENTAA,TCYANA,TWHITEA  
-TBLACKB,TREDB,TGREENB,TYELLOWB,TBLUEB,TMAGENTAB,TCYANB,TWHITEB  
-闪烁风格  
-FBLACK,FRED,FGREEN,FYELLOW,FBLUE,FMAGENTA,FCYAN,FWHITE  
-FBLACKA,FREDA,FGREENA,FYELLOWA,FBLUEA,FMAGENTAA,FCYANA,FWHITEA  
-FBLACKB,FREDB,FGREENB,FYELLOWB,FBLUEB,FMAGENTAB,FCYANB,FWHITEB  
+xcolor_iblack1,xcolor_ired1,xcolor_igreen1,xcolor_iyellow1,xcolor_iblue1,xcolor_imagenta1,xcolor_icyan1,xcolor_iwhite1  
+xcolor_iblack2,xcolor_ired2,xcolor_igreen2,xcolor_iyellow2,xcolor_iblue2,xcolor_imagenta2,xcolor_icyan2,xcolor_iwhite2  
+下划线风格   
+xcolor_ublack1,xcolor_ured1,xcolor_ugreen1,xcolor_uyellow1,xcolor_ublue1,xcolor_umagenta1,xcolor_ucyan1,xcolor_uwhite1  
+xcolor_ublack2,xcolor_ured2,xcolor_ugreen2,xcolor_uyellow2,xcolor_ublue2,xcolor_umagenta2,xcolor_ucyan2,xcolor_uwhite2  
+删除线风格   
+xcolor_tblack1,xcolor_tred1,xcolor_tgreen1,xcolor_tyellow1,xcolor_tblue1,xcolor_tmagenta1,xcolor_tcyan1,xcolor_twhite1  
+xcolor_tblack2,xcolor_tred2,xcolor_tgreen2,xcolor_tyellow2,xcolor_tblue2,xcolor_tmagenta2,xcolor_tcyan2,xcolor_twhite2  
+闪烁风格    
+xcolor_fblack1,xcolor_fred1,xcolor_fgreen1,xcolor_fyellow1,xcolor_fblue1,xcolor_fmagenta1,xcolor_fcyan1,xcolor_fwhite1  
+xcolor_fblack2,xcolor_fred2,xcolor_fgreen2,xcolor_fyellow2,xcolor_fblue2,xcolor_fmagenta2,xcolor_fcyan2,xcolor_fwhite2  
 粗体风格  
-BBLACK,BRED,BGREEN,BYELLOW,BBLUE,BMAGENTA,BCYAN,BWHITE  
+xcolor_bblack,xcolor_bred,xcolor_bgreen,xcolor_byellow,xcolor_bblue,xcolor_bmagenta1,xcolor_bcyan,xcolor_bwhite  
 
 
 ## eg.
 
     import logging
     from xcolor import *
-	# 测试颜色
+    
+    # 测试颜色
     test_color()
     # 测试内置颜色对象
     test_style()
-    # 蓝色字体
-    # print方法与内建print方法参数相同
-    BLUE.print("hello world!")
-    # 创建一个黄色字体,带下划线的颜色对象
-    color = Color("YellowB", "Underline")
-    color.print("hello", " world!")
-    # 重设风格为粗体,字体色红色
-    color.foreground = "Red"
-    color.style = "Bold"
-    color.print("Hi")
-
-
+    
+    
     # 用Color对象作为装饰器,改变被装饰函数内的标准输出
-    @YELLOW
+    @xcolor_yellow1
     def test():
-        print("*"*20)
-
+        print("*" * 20)
+    
+    
     test()
-
-    logger = logging.getLogger("test")
+    
+    logger = logging.getLogger()
+    logger.addHandler(logging.StreamHandler())
+    logger.setLevel(logging.DEBUG)
     # setenv与clear成对使用,区间的标准输出风格被改变
     # 以绿色打印warning,红色打印error
-    GREEN.setenv()
+    xcolor_green1.setenv()
     logger.warning("warning")
     Color.clear()
-    RED.setenv()
+    xcolor_red2.setenv()
     logger.error("error")
     Color.clear()
+    
+    logger.error = xcolor_ured2(logger.error)
+    logger.warning = xcolor_uyellow1(logger.warning)
+    logger.info = xcolor_yellow2(logger.info)
+    logger.error("ERROR")
+    logger.warning("WARNNING")
+    logger.info("INFO")
+    
