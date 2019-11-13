@@ -10,7 +10,8 @@ class Color:
         self.style = style
 
     def print(self, *objects, sep=' ', end='\n', file=sys.stdout, flush=False):
-        print('\033[%s;%sm' % (Style.__dict__[self.style.lower()], Foreground.__dict__[self.color.lower()]), end='',flush=True)
+        print('\033[%s;%sm' % (Style.__dict__[self.style.lower()], Foreground.__dict__[self.color.lower()]), end='',
+              flush=True)
         print(*objects, sep=sep, end='', file=file, flush=flush)
         print('\033[0m', end=end, flush=True)
 
@@ -39,3 +40,7 @@ class Color:
 
     def __repr__(self):
         return "<Color('%s','%s')>" % (self.color.title(), self.style.title())
+
+
+def clear():
+    print('\033[0m', end='', flush=True)
