@@ -2,3 +2,4 @@
 .pytest_cache
 /__pycache__/
 /xcolor.egg-info/
+xcolor/__pycache__/
